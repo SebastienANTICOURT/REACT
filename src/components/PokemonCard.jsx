@@ -19,5 +19,7 @@ PokemonCard.propTypes = {
       imgSrc: PropTypes.string,
    }).isRequired,
 }
+
+
 /*dans le return {} si js sinon ca marche pas*/
 export default PokemonCard;
