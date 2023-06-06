@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from "./components/PokemonCard"
-
+import NavBar from "./components/NavBar"
 
   const pokemonList = [
   {
@@ -28,35 +28,17 @@ import PokemonCard from "./components/PokemonCard"
   },
 ];
 
+
 const App = () => {
   const [pokemonCount, setPokemonCount] = useState(0);
 
-  const handleClickSuivant = () =>
-   setPokemonCount (
-    pokemonCount < pokemonList.length - 1 ? pokemonCount +1 : pokemonCount
-   );
-   const handleClickPrecedent = () =>
-   setPokemonCount (
-    pokemonCount> 0 ? pokemonCount - 1 : pokemonCount
-   );
-
-   const Pokemon = pokemonList[pokemonCount];
-
-   return(
-    <div>
-      <img src={Pokemon.imgSrc} alt={Pokemon.name} />
-    <div>
-    {pokemonCount > 0? (
-      <button onClick={handleClickPrecedent}>Precedent</button>
-    ) : undefined}
-    {pokemonCount < pokemonList.length -1 ? (
-      <button onClick = {handleClickSuivant}>Suivant</button>
-    ) : undefined}
-    </div>
-    </div>
+  return(
+  <div>
+    <NavBar pokeprops={[pokemonCount, setPokemonCount]}
+            pokelist= {pokemonList}/>
+    <img src={pokemonList[pokemonCount].imgSrc} alt={pokemonList[pokemonCount].name} /> 
+  </div>
     );
     };
 
-
- 
 export default App;
