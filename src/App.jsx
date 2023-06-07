@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
+import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
 import PokemonCard from "./components/PokemonCard"
 import NavBar from "./components/NavBar"
 
@@ -30,6 +31,7 @@ import NavBar from "./components/NavBar"
 
 
 const App = () => {
+/*Déclaration d'un state pour stocker l'index du pokemon affiche, initialisé à 0*/ 
   const [pokemonCount, setPokemonCount] = useState(0);
 
   return(

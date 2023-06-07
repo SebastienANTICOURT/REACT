@@ -1,30 +1,22 @@
+import { useEffect } from "react";
 import "./NavBar.css";
+import { object } from "prop-types";
 
 
 const NavBar = ({pokeprops, pokelist}) => {
   const [pokemonCount, setPokemonCount] = pokeprops;
-console.log(pokemonCount);
 
-  const handleClickSuivant = () =>
-   setPokemonCount (
-    pokemonCount < pokelist.length - 1 ? pokemonCount +1 : pokemonCount
-   );
-   const handleClickPrecedent = () =>
-   setPokemonCount (
-    pokemonCount> 0 ? pokemonCount - 1 : pokemonCount
-   );
 
-   const Pokemon = pokelist[pokemonCount];
-  
+  const handleClickPokemon = (pokemonIndex) => {
+   setPokemonCount(pokemonIndex);
+  };
+
+   
      return(     
-        <div>
-        {pokemonCount > 0? (
-          <button onClick={handleClickPrecedent}>Precedent</button>
-        ) : undefined}
-        {pokemonCount < pokelist.length -1 ? (
-          <button onClick = {handleClickSuivant}>Suivant</button>
-        ) : undefined}
-        </div>
+   <div>
+  {pokelist.map((pokemon, pokemonIndex) => (
+  <button key={pokemonIndex} onClick={() => handleClickPokemon(pokemonIndex)}>{pokemon.name}</button>))}
+    </div>
         );
 };
 
